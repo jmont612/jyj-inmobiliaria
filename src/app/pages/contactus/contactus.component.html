@@ -1,0 +1,111 @@
+<div class="container" style="padding-top: 120px">
+  <h3>Contactenos</h3>
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup]="contactusForm">
+        <div formGroupName="person">
+          <div class="form-group">
+            <label>Nombre:</label>
+            <input
+              type="text"
+              formControlName="firstname"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label>Apellido:</label>
+            <input
+              type="text"
+              formControlName="lastname"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" formControlName="email" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>Comentarios</label>
+          <textarea formControlName="message" class="form-control"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label>Género</label>
+            <div class="form-group form-check">
+              <input
+                type="radio"
+                formControlName="gender"
+                class="form-check-input"
+                value="M"
+              />
+              <label class="form-check-label">Masculino</label>
+            </div>
+            <div class="form-group form-check">
+              <input
+                type="radio"
+                formControlName="gender"
+                class="form-check-input"
+                value="F"
+              />
+              <label class="form-check-label">Femenino</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <select formControlName="option">
+            <option ngValue="null" disabled>--Selecciona tu opcion--</option>
+            <option ngValue="option1">Option 1</option>
+            <option ngValue="option2">Option 2</option>
+            <option ngValue="option3">Option 3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select formControlName="optDynamic">
+            <option ngValue="null" disabled>--Selecciona tu opcion--</option>
+            <option *ngFor="let opt of options" [ngValue]="opt">
+              {{ opt }}
+            </option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <button (click)="onSubmit()" class="btn btn-info">Guardar</button>
+            |
+            <button (click)="cleanValues()" class="btn btn-danger">
+              Limpiar
+            </button>
+            |
+            <button (click)="updateValues()" class="btn btn-primary">
+              Cargar Datos
+            </button>
+          </div>
+        </div>
+        <div>
+          <br />
+          <br />
+          <p>
+            {{ contactusForm.value | json }}
+          </p>
+          <p>
+            Estado de Formulario: {{ contactusForm.status }}
+            <br />
+            Formulario es Valido?: {{ contactusForm.valid }}
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="col-6">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1182603028537!2d-76.96509068507015!3d-12.10405574626472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c70ab77498c1%3A0xcce9f50642e7c684!2sUniversidad%20Peruana%20de%20Ciencias%20Aplicadas!5e0!3m2!1ses-419!2spe!4v1635215931987!5m2!1ses-419!2spe"
+        width="500"
+        height="300"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+      <div>Telefono: ###-###-###</div>
+    </div>
+  </div>
+</div>
